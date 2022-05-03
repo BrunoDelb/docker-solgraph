@@ -7,9 +7,8 @@ RUN apt-get update -y && apt-get install -y git graphviz
 RUN npm install -g solgraph
 
 RUN mkdir /app
-COPY run.sh /app/run.sh
+COPY --chmod=755 run.sh /app/run.sh
 
 WORKDIR /data
 
 CMD ["sh", "/app/run.sh"]
-
