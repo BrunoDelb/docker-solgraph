@@ -5,15 +5,13 @@ FROM node:8.7.0
 RUN apt-get update -y && apt-get install -y git graphviz
 
 # download + install solgraph
-RUN git clone https://github.com/raineorshine/solgraph.git && \
-    cd solgraph && \
-    npm i && \
-    npm run build
+RUN npm install -g solgraph
 
+RUN mkdir /app
 COPY png-to-dataurl.js /app/png-to-dataurl.js
-
-# copy start script
 COPY run.sh /app/run.sh
+
+WORKDIR /data
 
 # execute start script
 CMD ["sh", "/app/run.sh"]
