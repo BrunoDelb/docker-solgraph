@@ -1,5 +1,5 @@
 # if we use alpine, all text characters in the outputted PNG will be vertical rectangles (unrecognized)
-FROM node:8.7.0
+FROM node
 
 # install graphviz
 RUN apt-get update -y && apt-get install -y git graphviz
